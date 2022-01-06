@@ -18,7 +18,7 @@ const Home: NextPage = () => {
 
       <Navbar></Navbar>
       <main className={`relative md:overflow-y-hidden`}>
-        <div className={`md:w-screen flex md:flex-row flex-col relative`}>
+        <div className={`flex md:flex-row flex-col relative`}>
           <section
             role="button"
             tabIndex={0}

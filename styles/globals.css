@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Playfair+Display:wght@800&family=Work+Sans:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-color-global: #171717;
+  --menu-color-global: white;
+  --color-global-text: #171717;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+small {
+  font-family: "PT Serif", serif;
+}
+
+p {
+  font-family: "Work Sans";
+  font-weight: 400;
+}
+
+span {
+  font-family: "Playfair Display", serif;
+}

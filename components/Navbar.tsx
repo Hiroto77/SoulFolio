@@ -3,52 +3,45 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { SiReactos } from "react-icons/si";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
+import { AnimationControls, useAnimation, motion } from "framer-motion";
+import { NavbarProps } from "../typings/NavbarProps";
 
-const Navbar = () => {
+const Navbar = ({
+  SectionControlUp,
+  SectionControlDown,
+  SectionDivControl,
+}: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuControl = useAnimation();
+
+  const variant = {
+    initial: { opacity: 0, display: "none" },
+    final: { opacity: 1, display: "flex" },
+  };
+
   useEffect(() => {
-    const AllSections = Array.prototype.slice.call(
-      document.getElementsByTagName("section")
-    );
-    const menu: any = document.getElementById(styles.hamburger);
-    const main: any = document.getElementsByTagName("main")[0];
-    if (isOpen) {
-      main.classList.remove(styles.fadeIn);
-      main.classList.add(styles.fadeOut);
-      AllSections.map((x, index) => {
-        if (index % 2 == 0) {
-          AllSections[index].classList.add(styles.fadeOutUp);
-        } else {
-          AllSections[index].classList.add(styles.fadeOutDown);
-        }
-      });
-      setTimeout(() => {
-        AllSections.map((x) => (x.style.display = "none"));
-      }, 500);
-      setTimeout(() => {
-        AllSections.map((x, index) =>
-          index % 2 == 0
-            ? AllSections[index].classList.remove(styles.fadeOutUp)
-            : AllSections[index].classList.remove(styles.fadeOutDown)
-        );
-        menu.style.display = "flex";
-        menu.classList.add(styles.fadeIn);
-        menu.classList.remove(styles.fadeOut);
-      }, 500);
-    } else {
-      AllSections.map((x) => x.classList.remove(styles.fadeOut));
-      main.classList.remove(styles.fadeOut);
-      main.classList.add(styles.fadeIn);
-      setTimeout(() => {
-        AllSections.map((x) => (x.style.display = "flex"));
-      }, 500);
-      menu.classList.add(styles.fadeOut);
-      menu.classList.remove(styles.fadeIn);
-      setTimeout(() => {
-        menu.style.display = "none";
-      }, 500);
-    }
-  }, [isOpen]);
+    const openNavbarSequence = async () => {
+      SectionControlUp.start("initialPositionUp");
+      await SectionControlDown.start("initialPositionDown");
+      await SectionDivControl.start("hideSectionDiv");
+      await menuControl.start("final");
+    };
+
+    const closeNavbarSeqence = async () => {
+      await menuControl.start("initial");
+      SectionControlUp.start("finalPosition");
+      SectionControlDown.start("finalPosition");
+      return SectionDivControl.start("showSectionDiv");
+    };
+
+    isOpen ? openNavbarSequence() : closeNavbarSeqence();
+  }, [
+    SectionControlDown,
+    SectionControlUp,
+    SectionDivControl,
+    isOpen,
+    menuControl,
+  ]);
   return (
     <>
       <nav className="fixed z-50 w-full pl-8 pr-8 pt-2">
@@ -65,8 +58,11 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
-      <div
-        className={`hidden h-screen w-screen pt-14 flex flex-col items-center justify-around gap-10`}
+      <motion.div
+        animate={menuControl}
+        initial={"initial"}
+        variants={variant}
+        className={`h-screen w-screen pt-14 flex flex-col items-center justify-around gap-10`}
         id={styles.hamburger}
       >
         <div className={`flex flex-col w-full items-center gap-10`}>
@@ -134,7 +130,7 @@ const Navbar = () => {
           <span className={`${styles.copyright}`}>Copyright&#169;2022</span>
           <span className={`${styles.copyright}`}>SOMNATH DAS</span>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

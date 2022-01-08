@@ -29,3 +29,12 @@
 .copyright {
   font-family: "Work Sans";
 }
+
+.soul {
+  box-shadow: rgba(220, 20, 60, 0.699) 0px 48px 100px 0px;
+}
+
+.soul_inside {
+  box-shadow: rgba(220, 20, 60, 0.699) 3px 3px 6px 0px inset,
+    rgba(233, 59, 140, 0.5) -3px -3px 6px 1px inset;
+}

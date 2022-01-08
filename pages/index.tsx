@@ -4,14 +4,15 @@ import Navbar from "../components/Navbar";
 import styles from "../styles/Home.module.css";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import PopUpCard from "../components/PopUpCard";
 
 const Home: NextPage = () => {
   const sectionControlsUp = useAnimation();
   const sectionControlsDown = useAnimation();
   const sectionDivControls = useAnimation();
 
-  const [selectedId, setSelectedId] = useState("");
+  const [selectedId, setSelectedId] = useState(0);
+  const [isTrue, setIsTrue] = useState(false);
 
   const variant = {
     initialPositionUp: { translateY: "-100%", opacity: 0 },
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
     initialPositionForO: { opacity: 0 },
     hideSectionDiv: { display: "none" },
     showSectionDiv: { display: "flex" },
+    fadeInAndShow: { opacity: 1, display: "flex" },
   };
 
   useEffect(() => {
@@ -28,13 +30,11 @@ const Home: NextPage = () => {
       sectionControlsUp.start("finalPosition");
       return sectionControlsDown.start("finalPosition");
     };
-    let width =
-      window.innerWidth ||
-      document.documentElement.clientWidth ||
-      document.body.clientWidth;
 
     initialSequenceSimultaneous();
   });
+
+  useEffect(() => {}, [selectedId]);
 
   return (
     <div className={"relative"}>
@@ -65,81 +65,93 @@ const Home: NextPage = () => {
             animate={sectionControlsUp}
             variants={variant}
             transition={{ delay: 0.4 }}
-            layoutId="123"
-            onClick={() => setSelectedId("123")}
             role="button"
             tabIndex={0}
-            className={`h-screen md:w-1/2  flex flex-col justify-between items-center md:border-r-2 border-b-2  pb-4`}
+            className={`h-screen  md:w-1/2`}
           >
-            <h1 className={`${styles.bigTexts}`}>S</h1>
-            <p className="text-2xl md:text-3xl p-4 relative bottom-10 uppercase">
-              Who am I?
-            </p>
-            <small className={`md:text-2xl text-xl text-justify w-4/5`}>
-              0.01
-            </small>
-          </motion.section>
-
-          <AnimatePresence>
-            {selectedId === "123" && (
-              <motion.div
-                key={2}
-                layoutId={selectedId}
-                className="z-50 absolute md:h-3/4 md:w-1/4 h-screen  self-center   w-4/5   flex flex-col justify-center items-center  pb-4  cursor-pointer"
-                onClick={() => setSelectedId("")}
-              >
-                <motion.p
-                  className="text-2xl md:text-3xl p-4 relative bottom-10 uppercase text-center"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
+            <AnimatePresence>
+              {isTrue && selectedId === 1 ? (
+                ""
+              ) : (
+                <motion.div
+                  className="h-screen flex flex-col justify-between items-center  pb-4"
+                  variants={variant}
+                  onClick={() => {
+                    setSelectedId(1);
+                    setIsTrue(true);
+                  }}
                 >
-                  A Web Designer <br></br>
-                  <motion.p
-                    className="text-8xl"
-                    initial={{ rotate: "0deg" }}
-                    animate={{ rotate: "360deg" }}
-                    transition={{ duration: 1, repeat: Infinity }}
-                  >
-                    +
-                  </motion.p>
-                  <br></br>
-                  Typical Punk
-                </motion.p>
-                <Link href="/">
-                  <motion.a
-                    className="md:text-xl hover:underline decoration-2 decoration-red-400"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                  >
-                    Learn More about me
-                  </motion.a>
-                </Link>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                  <h1 className={`${styles.bigTexts}`}>S</h1>
+                  <p className="text-2xl md:text-3xl p-4 relative bottom-10 uppercase">
+                    Who am I?
+                  </p>
+                  <small className={`md:text-2xl text-xl text-justify w-4/5`}>
+                    0.01
+                  </small>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <PopUpCard
+              truth={isTrue}
+              SetTruth={(value: boolean | ((prevState: boolean) => boolean)) =>
+                setIsTrue(value)
+              }
+              linkLocation="/"
+              currentId={selectedId}
+              targetId={1}
+              transition="down"
+              linkDescription="Learn more about me"
+            />
+          </motion.section>
 
           <motion.section
             initial={"initialPositionForO"}
             animate={sectionControlsDown}
             variants={variant}
             transition={{ delay: 0.5 }}
-            layoutId="321"
-            onClick={() => setSelectedId("321")}
             role="button"
             tabIndex={1}
-            className={`${styles.section2} h-screen  md:w-1/2  flex flex-col items-center justify-between  md:border-r-2 border-b-2    pb-4`}
+            className={`${styles.section2} h-screen  md:w-1/2 `}
           >
-            <h1 className={`${styles.bigTexts} md:-rotate-45 translate-y-10`}>
-              O
-            </h1>
-            <p className="text-2xl md:text-3xl p-4 relative bottom-10 uppercase text-center">
-              My Works
-            </p>
-            <small className={`md:text-2xl text-xl text-justify w-4/5`}>
-              0.02
-            </small>
+            <AnimatePresence>
+              {isTrue && selectedId === 2 ? (
+                ""
+              ) : (
+                <motion.div
+                  className={`${styles.soul} h-screen flex flex-col justify-between items-center   pb-4`}
+                  onClick={() => {
+                    setSelectedId(2);
+                    setIsTrue(true);
+                  }}
+                  variants={variant}
+                >
+                  <h1
+                    className={`${styles.bigTexts} md:-rotate-45 translate-y-10`}
+                  >
+                    O
+                  </h1>
+                  <p className="text-2xl md:text-3xl p-4 relative bottom-10 uppercase text-center">
+                    My Works
+                  </p>
+                  <small className={`md:text-2xl text-xl text-justify w-4/5`}>
+                    0.02
+                  </small>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <PopUpCard
+              truth={isTrue}
+              SetTruth={(value: boolean | ((prevState: boolean) => boolean)) =>
+                setIsTrue(value)
+              }
+              linkLocation="/"
+              currentId={selectedId}
+              targetId={2}
+              transition="in"
+              description="Most of the time I work on frontend, sometimes I do backend too"
+              linkDescription="Show! Don't tell "
+            />
           </motion.section>
 
           <motion.section
@@ -149,16 +161,44 @@ const Home: NextPage = () => {
             transition={{ delay: 0.4 }}
             role="button"
             tabIndex={2}
-            className={`h-screen  md:w-1/2 flex flex-col items-center justify-between md:border-r-2 border-b-2    pb-4`}
+            className={`h-screen  md:w-1/2 `}
           >
-            <h1 className={`${styles.bigTexts}`}>U</h1>
-            <p className="text-2xl md:text-3xl p-4 relative bottom-10 uppercase">
-              Hire me
-            </p>
-            <small className={`md:text-2xl text-xl text-justify w-4/5`}>
-              0.03
-            </small>
+            <AnimatePresence>
+              {isTrue && selectedId === 3 ? (
+                ""
+              ) : (
+                <motion.div
+                  className="h-screen flex flex-col items-center justify-between md:border-r-2 border-b-2    pb-4"
+                  onClick={() => {
+                    setSelectedId(3);
+                    setIsTrue(true);
+                  }}
+                  variants={variant}
+                >
+                  <h1 className={`${styles.bigTexts}`}>U</h1>
+                  <p className="text-2xl md:text-3xl p-4 relative bottom-10 uppercase">
+                    Hire me
+                  </p>
+                  <small className={`md:text-2xl text-xl text-justify w-4/5`}>
+                    0.03
+                  </small>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <PopUpCard
+              truth={isTrue}
+              SetTruth={(value: boolean | ((prevState: boolean) => boolean)) =>
+                setIsTrue(value)
+              }
+              linkLocation="/"
+              currentId={selectedId}
+              targetId={3}
+              transition="up"
+              description="Looking for someone as crazy as me to hire? Sure"
+              linkDescription="Hire Me!"
+            />
           </motion.section>
+
           <motion.section
             initial={"initialPositionUp"}
             animate={sectionControlsDown}
@@ -166,15 +206,41 @@ const Home: NextPage = () => {
             transition={{ delay: 0.4 }}
             role="button"
             tabIndex={3}
-            className={`h-screen  md:w-1/2  flex flex-col justify-between items-center border-b-2   pb-4`}
+            className={`h-screen md:w-1/2 `}
           >
-            <h1 className={`${styles.bigTexts}`}>L</h1>
-            <p className="text-2xl md:text-3xl p-4 relative bottom-10 uppercase">
-              OPINION IS DEAD
-            </p>
-            <small className={`md:text-2xl text-xl text-justify w-4/5`}>
-              0.04
-            </small>
+            <AnimatePresence>
+              {isTrue && selectedId === 4 ? (
+                ""
+              ) : (
+                <motion.div
+                  className="h-screen  flex flex-col justify-between items-center border-b-2   pb-4"
+                  onClick={() => {
+                    setSelectedId(4);
+                    setIsTrue(true);
+                  }}
+                >
+                  <h1 className={`${styles.bigTexts}`}>L</h1>
+                  <p className="text-2xl md:text-3xl p-4 relative bottom-10 uppercase">
+                    OPINION IS DEAD
+                  </p>
+                  <small className={`md:text-2xl text-xl text-justify w-4/5`}>
+                    0.04
+                  </small>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <PopUpCard
+              truth={isTrue}
+              SetTruth={(value: boolean | ((prevState: boolean) => boolean)) =>
+                setIsTrue(value)
+              }
+              linkLocation="/"
+              currentId={selectedId}
+              targetId={4}
+              transition="down"
+              description="Opinions on the internet? What a joke! Instead read my blog"
+              linkDescription="My Blog"
+            />
           </motion.section>
           <motion.section
             className={`md:h-screen w-screen flex justify-center md:items-end relative md:w-6  p-4 `}

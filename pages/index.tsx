@@ -193,7 +193,7 @@ const Home: NextPage = () => {
               linkLocation="/"
               currentId={selectedId}
               targetId={3}
-              transition="up"
+              transition="down"
               description="Looking for someone as crazy as me to hire? Sure"
               linkDescription="Hire Me!"
             />
@@ -218,6 +218,7 @@ const Home: NextPage = () => {
                     setSelectedId(4);
                     setIsTrue(true);
                   }}
+                  variants={variant}
                 >
                   <h1 className={`${styles.bigTexts}`}>L</h1>
                   <p className="text-2xl md:text-3xl p-4 relative bottom-10 uppercase">
@@ -237,7 +238,7 @@ const Home: NextPage = () => {
               linkLocation="/"
               currentId={selectedId}
               targetId={4}
-              transition="down"
+              transition="up"
               description="Opinions on the internet? What a joke! Instead read my blog"
               linkDescription="My Blog"
             />

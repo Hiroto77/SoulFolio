@@ -77,7 +77,7 @@ const Navbar = ({
             </a>
           </Link>
 
-          <Link href="/">
+          <Link href="/projects">
             <a>
               <span
                 className={`md:text-6xl text-4xl hover:underline decoration-1 decoration-blac`}
@@ -88,7 +88,7 @@ const Navbar = ({
             </a>
           </Link>
 
-          <Link href="">
+          <Link href="/about">
             <a>
               <span
                 className={`md:text-6xl text-4xl hover:underline decoration-1 decoration-blac`}
@@ -102,7 +102,7 @@ const Navbar = ({
           <div
             className={`flex flex-col md:flex-row justify-evenly items-center w-full gap-10`}
           >
-            <Link href="">
+            <Link href="/hireme">
               <a>
                 <span
                   className={`md:text-6xl text-4xl hover:underline decoration-1 decoration-blac`}
@@ -112,12 +112,12 @@ const Navbar = ({
                 <small>04</small>
               </a>
             </Link>
-            <Link href="">
+            <Link href="/socials">
               <a>
                 <span
                   className={`md:text-6xl text-4xl hover:underline decoration-1 decoration-blac`}
                 >
-                  / BLOG
+                  / SOCIALS
                 </span>
                 <small>05</small>
               </a>
@@ -125,7 +125,7 @@ const Navbar = ({
           </div>
         </div>
         <div
-          className={` md:text-3xl text-xl flex flex-col uppercase items-center`}
+          className={` md:text-xl text-lg flex flex-col uppercase items-center`}
         >
           <span className={`${styles.copyright}`}>Copyright&#169;2022</span>
           <span className={`${styles.copyright}`}>SOMNATH DAS</span>

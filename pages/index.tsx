@@ -96,7 +96,7 @@ const Home: NextPage = () => {
               SetTruth={(value: boolean | ((prevState: boolean) => boolean)) =>
                 setIsTrue(value)
               }
-              linkLocation="/"
+              linkLocation="/about"
               currentId={selectedId}
               targetId={1}
               transition="down"
@@ -145,7 +145,7 @@ const Home: NextPage = () => {
               SetTruth={(value: boolean | ((prevState: boolean) => boolean)) =>
                 setIsTrue(value)
               }
-              linkLocation="/"
+              linkLocation="/projects"
               currentId={selectedId}
               targetId={2}
               transition="in"
@@ -190,7 +190,7 @@ const Home: NextPage = () => {
               SetTruth={(value: boolean | ((prevState: boolean) => boolean)) =>
                 setIsTrue(value)
               }
-              linkLocation="/"
+              linkLocation="/hireme"
               currentId={selectedId}
               targetId={3}
               transition="down"
@@ -235,12 +235,12 @@ const Home: NextPage = () => {
               SetTruth={(value: boolean | ((prevState: boolean) => boolean)) =>
                 setIsTrue(value)
               }
-              linkLocation="/"
+              linkLocation="/socials"
               currentId={selectedId}
               targetId={4}
               transition="up"
-              description="Opinions on the internet? What a joke! Instead read my blog"
-              linkDescription="My Blog"
+              description="Opinions on the internet? What a joke! checkout my socials"
+              linkDescription="Chat me up"
             />
           </motion.section>
           <motion.section

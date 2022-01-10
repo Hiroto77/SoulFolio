@@ -112,7 +112,7 @@ const Socials: NextPage = () => {
               </h1>
               <div className="flex justify-evenly mt-6">
                 <a
-                  href="instagram.com/samurai3247"
+                  href="https://instagram.com/samurai3247"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -122,7 +122,7 @@ const Socials: NextPage = () => {
                   />
                 </a>
                 <a
-                  href="github.com/SomnathDas"
+                  href="https://github.com/SomnathDas"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:scale-125 transition-all"
@@ -130,7 +130,7 @@ const Socials: NextPage = () => {
                   <BsGithub size={64} />
                 </a>
                 <a
-                  href="codepen.io/samurai2099"
+                  href="https://codepen.io/samurai2099"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:scale-125 transition-all"

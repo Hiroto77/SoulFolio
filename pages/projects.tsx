@@ -62,7 +62,7 @@ const Projects: NextPage = () => {
         options={{
           background: {
             color: {
-              value: "#ffffff",
+              value: "#000000",
             },
           },
           fpsLimit: 120,
@@ -74,7 +74,7 @@ const Projects: NextPage = () => {
           },
           particles: {
             color: {
-              value: "#000000",
+              value: "#ffffff",
             },
             links: {
               color: "#000000",
@@ -102,7 +102,7 @@ const Projects: NextPage = () => {
               value: 80,
             },
             opacity: {
-              value: 0.4,
+              value: 100,
             },
             shape: {
               type: "circle",

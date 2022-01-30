@@ -28,8 +28,8 @@ const Socials: NextPage = () => {
     <>
       <Head>
         <title>Socials</title>
-        <meta name="description" content="Democracy is, is democracy" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Socializing env." />
+        <link rel="icon" href="/public/icon_65i_icon.ico" />
       </Head>
       <Particles
         className="absolute md:w-1/2 h-screen -z-50"
@@ -37,7 +37,7 @@ const Socials: NextPage = () => {
         options={{
           background: {
             color: {
-              value: "#ffffff",
+              value: "#000000",
             },
           },
           fpsLimit: 120,
@@ -49,7 +49,7 @@ const Socials: NextPage = () => {
           },
           particles: {
             color: {
-              value: "#000000",
+              value: "#ffffff",
             },
             links: {
               color: "#000000",
@@ -77,7 +77,7 @@ const Socials: NextPage = () => {
               value: 80,
             },
             opacity: {
-              value: 0.4,
+              value: 100,
             },
             shape: {
               type: "circle",
@@ -108,11 +108,11 @@ const Socials: NextPage = () => {
           >
             <div className="md:w-1/2">
               <h1 className="text-center md:text-5xl text-2xl">
-                Connect with me, atleast virtually..
+                Connect with me, virtually..! Stay Safe at home.
               </h1>
               <div className="flex justify-evenly mt-6">
                 <a
-                  href="https://instagram.com/samurai3247"
+                  href="https://www.instagram.com/_ni_t_in._/"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -122,20 +122,12 @@ const Socials: NextPage = () => {
                   />
                 </a>
                 <a
-                  href="https://github.com/SomnathDas"
+                  href="https://github.com/Hiroto77/Hiroto/blob/main/README.md"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:scale-125 transition-all"
                 >
                   <BsGithub size={64} />
-                </a>
-                <a
-                  href="https://codepen.io/samurai2099"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:scale-125 transition-all"
-                >
-                  <SiCodepen size={64} />
                 </a>
               </div>
             </div>

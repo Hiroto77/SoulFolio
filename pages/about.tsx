@@ -31,7 +31,7 @@ const About: NextPage = () => {
           name="description"
           content="That's all about ME!"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="public/icon_65i_icon.ico" />
       </Head>
       <Particles
         className="absolute md:w-1/2 h-screen -z-50"

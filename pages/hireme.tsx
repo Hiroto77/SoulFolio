@@ -40,7 +40,7 @@ const HireMe: NextPage = () => {
         options={{
           background: {
             color: {
-              value: "#ffffff",
+              value: "#000000",
             },
           },
           fpsLimit: 120,
@@ -52,7 +52,7 @@ const HireMe: NextPage = () => {
           },
           particles: {
             color: {
-              value: "#000000",
+              value: "#ffffff",
             },
             links: {
               color: "#000000",
@@ -80,7 +80,7 @@ const HireMe: NextPage = () => {
               value: 80,
             },
             opacity: {
-              value: 0.4,
+              value: 100,
             },
             shape: {
               type: "circle",
@@ -112,11 +112,11 @@ const HireMe: NextPage = () => {
             <div className="md:w-1/2 flex flex-col justify-center items-center">
               <h1 className="text-center md:text-5xl text-2xl">Oh My,</h1>
               <p className="md:text-3xl text-lg">
-                I see that you are interested in hiring me :D
+                I see that you are interested in hiring me !! XD
               </p>
 
               <a
-                href="mailto: fuckDisney@weeweewoowoo.com"
+                href="mailto: shivamkiran2@gmail.com"
                 className="border-2 border-black p-4 hover:border-dashed"
               >
                 Send Email

@@ -42,9 +42,9 @@ const Home: NextPage = () => {
         <title>Home</title>
         <meta
           name="description"
-          content="When logic and proportions, have fallen sloppy dead"
+          content="INDEED!"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="public/icon_65i_icon.ico" />
       </Head>
 
       <Navbar
@@ -131,7 +131,7 @@ const Home: NextPage = () => {
                     O
                   </h1>
                   <p className="text-2xl md:text-3xl p-4 relative bottom-10 uppercase text-center">
-                    My Works
+                    My Projects
                   </p>
                   <small className={`md:text-2xl text-xl text-justify w-4/5`}>
                     0.02
@@ -149,8 +149,8 @@ const Home: NextPage = () => {
               currentId={selectedId}
               targetId={2}
               transition="in"
-              description="Most of the time I work on frontend, sometimes I do backend too"
-              linkDescription="Show! Don't tell "
+              description="Most of the time I work on backend, sometimes I do frontend too"
+              linkDescription="Check this Out! "
             />
           </motion.section>
 
@@ -239,7 +239,7 @@ const Home: NextPage = () => {
               currentId={selectedId}
               targetId={4}
               transition="up"
-              description="Opinions on the internet? What a joke! checkout my socials"
+              description="Want to Contact me!?"
               linkDescription="Chat me up"
             />
           </motion.section>
@@ -249,7 +249,7 @@ const Home: NextPage = () => {
             <p
               className={`relative md:bottom-24 md:rotate-90 uppercase text-center`}
             >
-              Somnath&#169;2022
+              NiTiN&#169;2022
             </p>
           </motion.section>
         </motion.div>

@@ -81,6 +81,7 @@ const Navbar = ({
             <a>
               <span
                 className={`md:text-6xl text-4xl hover:underline decoration-1 decoration-blac`}
+
               >
                 / PROJECTS
               </span>
@@ -128,7 +129,7 @@ const Navbar = ({
           className={` md:text-xl text-lg flex flex-col uppercase items-center`}
         >
           <span className={`${styles.copyright}`}>Copyright&#169;2022</span>
-          <span className={`${styles.copyright}`}>SOMNATH DAS</span>
+          <span className={`${styles.copyright}`}>NiTiN</span>
         </div>
       </motion.div>
     </>

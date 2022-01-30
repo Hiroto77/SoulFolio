@@ -56,7 +56,7 @@ const PopUpCard = ({
             {description}
             {targetId == 1 ? (
               <>
-                A Web Designer <br></br>
+                A Developer <br></br>
                 <motion.p
                   className="text-8xl"
                   initial={{ rotate: "0deg" }}

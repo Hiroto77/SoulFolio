@@ -29,7 +29,7 @@ const About: NextPage = () => {
         <title>About</title>
         <meta
           name="description"
-          content="Detonation of punk in a long lost sea"
+          content="That's all about ME!"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -39,7 +39,7 @@ const About: NextPage = () => {
         options={{
           background: {
             color: {
-              value: "#ffffff",
+              value: "#000000",
             },
           },
           fpsLimit: 120,
@@ -51,7 +51,7 @@ const About: NextPage = () => {
           },
           particles: {
             color: {
-              value: "#000000",
+              value: "#ffffff",
             },
             links: {
               color: "#000000",
@@ -68,7 +68,7 @@ const About: NextPage = () => {
               enable: true,
               outMode: "destroy",
               random: true,
-              speed: 0.25,
+              speed: 0.50,
               straight: false,
             },
             number: {
@@ -79,7 +79,7 @@ const About: NextPage = () => {
               value: 80,
             },
             opacity: {
-              value: 0.4,
+              value: 100,
             },
             shape: {
               type: "circle",
@@ -119,11 +119,11 @@ const About: NextPage = () => {
               />
             </div>
             <div className="md:w-1/2">
-              <h1 className="text-center md:text-5xl text-2xl">Hello there,</h1>
+              <h1 className="text-center md:text-5xl text-2xl">Hello Human,</h1>
               <h4 className="md:text-3xl text-lg mt-4">
-                Born in Schadenfruede, Germany. I am a front-end developer and a
-                web designer. I have been utilising my time learning and working
-                with react and next.js
+                Born in India. I am a Back-end developer and learning web designing.
+                 I have been utilising my time learning and working
+                with react,next.js and C/C++
               </h4>
             </div>
           </motion.section>
